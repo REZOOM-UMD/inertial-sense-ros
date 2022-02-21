@@ -380,6 +380,7 @@ void InertialSenseROS::INS2_callback(const ins_2_t * const msg)
 {
   if (!(msg->hdwStatus&HDW_STATUS_GPS_TIME_OF_WEEK_VALID))
   { // Don't run if msg->timeOfWeek is not valid
+    ROS_WARN("InertialSense - No GPS Time of Week Data --> /ins not published!");
     return;
   }
 
